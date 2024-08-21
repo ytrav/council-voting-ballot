@@ -1,0 +1,83 @@
+@use 'variables.scss' as v;
+
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url('../assets/fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../assets/maeve_3_3.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#app {
+  @include v.flex(column, center, center);
+  color: #fff;
+  font-family: 'Roboto Slab', serif;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 71px;
+  @include v.flex(row, flex-start, center);
+  padding: 15px;
+  backdrop-filter: blur(10px) brightness(0.8);
+  -webkit-backdrop-filter: blur(10px) brightness(0.8);
+}
+
+.page {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 271px;
+  @include v.flex(column, flex-start, center);
+  h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 2.7em;
+  }
+  .form {
+    backdrop-filter: blur(10px) brightness(0.8);
+    -webkit-backdrop-filter: blur(10px) brightness(0.8);
+    @include v.flex(column, flex-start, center);
+    width: 90%;
+    border-radius: 25px;
+    padding: 25px;
+    margin-top: 150px;
+    gap: 15px;
+    .input-field {
+      width: 100%;
+      label {
+        text-align: left;
+        align-self: flex-start;
+      }
+      input {
+        background-color: transparent;
+        border: 2px solid #dadada;
+        border-style: none none solid none;
+        height: 50px;
+        width: 100%;
+        transition: border 0.1s ease-out;
+        color: #fff;
+        font-size: 1.1em;
+        &:focus {
+          outline: none;
+          border: 3px solid #fdfdfd;
+          border-style: none none solid none;
+        }
+      }
+    }
+  }
+}

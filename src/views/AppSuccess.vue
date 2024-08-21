@@ -1,0 +1,3 @@
+<template>
+    success page
+</template>
