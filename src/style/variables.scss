@@ -24,6 +24,13 @@ $bezier: cubic-bezier(0.57, 0.21, 0.69, 1.25);
   align-items: $align;
 }
 
+@mixin no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 @mixin pseudo($display: block, $pos: absolute, $content: '') {
   content: $content;
   display: $display;
