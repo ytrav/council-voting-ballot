@@ -50,15 +50,17 @@ export default {
                     members: ['Doge Man', 'Serbyro'],
                     banner: '/noobish_banner.PNG?url',
                     motto: 'We need more soup!!!!!!',
-                    desc: 'We will make everyone lots of soup, and allow them to buy clothes from the soup store. (We will also reinstate the death penalty.) Oh and also we’re gonna make Homelander president of Jordan for funsies.<br><br>We think that soup will improve the living conditions of citizens, and if living conditions are nice, we can invest more time into other matters, like taking funny pictures of animals.<br><br>Speaking of animals, all octopuses must be protected and named either Timothy or Ambrosius. If an octopus appears, you are legally obligated to adopt it.<br><br>There must be a poster of The Deep from popular Amazon series \'The Boys\' in every official government building.<br>',
+                    desc: 'We will make everyone lots of soup, and allow them to buy clothes from the soup store. (We will also reinstate the death penalty.) Oh and also we’re gonna make Homelander president of Jordan for funsies.<br><br>We think that soup will improve the living conditions of citizens, and if living conditions are nice, we can invest more time into other matters, like taking funny pictures of animals.<br><br>Speaking of animals, all octopuses must be protected and named either Timothy or Ambrosius. If an octopus appears, you are legally obligated to adopt it.<br><br>There must be a poster of The Deep from popular Amazon series \'The Boys\' in every official government building.',
                     colours: ['dc4601', '757816']
                 },
                 {
                     name: 'Twink Suffrage Party',
                     leader: 'Marceline the Vampire Queen',
+                    members: ['Jec'],
                     banner: '/marceline_banner.png',
                     motto: 'Universal twink rights for all.',
-                    desc: 'I promise to bring about a free open democracy for all. Where all people not just twinks get their deserved rights. A world where food, shelter, and water are a common thing to find. I want to establish the great dining hall where you can post amazing looking food or talk about recipes for food. Now I am open to the people of this great country and if any of you have concerns I will cater to them.'
+                    desc: 'I promise to bring about a free open democracy for all. Where all people not just twinks get their deserved rights. A world where food, shelter, and water are a common thing to find. I want to establish the great dining hall where you can post amazing looking food or talk about recipes for food. Now I am open to the people of this great country and if any of you have concerns I will cater to them.',
+                    colours: ['D60270', '9B4F96', '0038A8']
                 }
             ],
             enteredData: {
@@ -92,7 +94,7 @@ export default {
             <div class="party" v-for="(party, index) in parties" :key="index">
                 <h3>{{ index+1 }}. <span class="colour" v-for="colour in party.colours" :key="colour" :style="`background-color: #${colour}`"></span> {{ party.name }}</h3>
                 <h4>Headed by: <strong>{{ party.leader }}</strong> <span v-if="party.members">
-                    ({{ party.members.join(', ') }})
+                    (with {{ party.members.join(', ') }})
                 </span></h4>
                 <img :src="party.banner" :alt="party.name + ' banner'">
                 <p v-html="party.desc"></p>
