@@ -2,23 +2,22 @@
 import { useLocaleStore } from '../stores/localeStore'
 import { mapStores } from 'pinia'
 
+
+interface Party {
+    name: string;
+    leader: string;
+    members?: string[];
+    banner: string;
+    motto: string;
+    desc: string;
+    colours: string[];
+}
+
+
 export default {
     data() {
         return {
-            fields2: [
-                {
-                    name: 'voter-name',
-                    label: 'Your name:',
-                    placeholder: 'John Doe II',
-                    variable: 'voterName'
-                },
-                {
-                    name: 'discord-username',
-                    label: 'Discord username:',
-                    placeholder: '@johndoes',
-                    variable: 'discordUsername'
-                }
-            ],
+
             parties: [
                 {
                     name: 'Costco Party',
@@ -62,11 +61,7 @@ export default {
                     desc: 'I promise to bring about a free open democracy for all. Where all people not just twinks get their deserved rights. A world where food, shelter, and water are a common thing to find. I want to establish the great dining hall where you can post amazing looking food or talk about recipes for food. Now I am open to the people of this great country and if any of you have concerns I will cater to them.',
                     colours: ['D60270', '9B4F96', '0038A8']
                 }
-            ],
-            enteredData: {
-                voterName: '',
-                discordUsername: ''
-            }
+            ] as Party[],
         }
     },
     computed: {
@@ -92,39 +87,41 @@ export default {
 
             <h2>Meet the parties of Maevetopia</h2>
             <div class="party" v-for="(party, index) in parties" :key="index">
-                <h3>{{ index+1 }}. <span class="colour" v-for="colour in party.colours" :key="colour" :style="`background-color: #${colour}`"></span> {{ party.name }}</h3>
+                <h3>{{ index + 1 }}. <span class="colour" v-for="colour in party.colours" :key="colour"
+                        :style="`background-color: #${colour}`"></span> {{ party.name }}</h3>
                 <h4>Headed by: <strong>{{ party.leader }}</strong> <span v-if="party.members">
-                    (with {{ party.members.join(', ') }})
-                </span></h4>
+                        (with {{ party.members.join(', ') }})
+                    </span></h4>
                 <img :src="party.banner" :alt="party.name + ' banner'">
                 <p v-html="party.desc"></p>
-                    <h4>"{{party.motto}}"</h4> - {{party.leader}}
-               
+                <h4>"{{ party.motto }}"</h4> - {{ party.leader }}
+
             </div>
             <!-- <p>-----</p> -->
 
-            </div>
-            <div class="form">
-            
-            <p>{{ localeStore.activeLocale.landing.soon2 }}<br>- Administration</p>
-            <p>Join Maevetopia to keep up with the election and participate in other exciting activities, as well as meet great people✨</p>
+        </div>
+        <div class="form">
 
-            <a href="http://discord.maevetopia.fun" class="discord-button"><img src="/discord.png" alt="discord logo">{{ localeStore.activeLocale.landing.become }} a Citizen today</a>
+            <p>{{ localeStore.activeLocale.landing.soon2 }}<br>- Administration</p>
+            <p>Join Maevetopia to keep up with the election and participate in other exciting activities, as well as
+                meet great people✨</p>
+
+            <a v-wave="{
+                duration: 0.2,
+                color: 'currentColor',
+                initialOpacity: 0.2,
+                easing: 'ease-out'
+            }" href="http://discord.maevetopia.fun" class="discord-button"><img src="/discord.png" alt="discord logo">{{
+                localeStore.activeLocale.landing.become }} a Citizen today</a>
 
 
             <iframe src="https://discord.com/widget?id=1240273703158419456&theme=dark" width="350" height="500"
                 allowtransparency="true" frameborder="0"
                 sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-            <div class="input-field" v-for="field in fields" :key="field">
-                <label :for="field.name">{{ field.label }}</label>
-                <input type="text" :id="field.name" :name="field.name" :placeholder="field.placeholder"
-                    v-model="enteredData[field.variable]" required spellcheck="false">
-                <span>{{ enteredData[field.variable] }}</span>
-            </div>
         </div>
 
-  <footer>
-    <span>© 2024 Maevetopia</span>
-  </footer>
+        <footer>
+            <span>© 2024 Maevetopia</span>
+        </footer>
     </div>
 </template>

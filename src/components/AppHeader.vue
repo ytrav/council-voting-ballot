@@ -40,11 +40,24 @@ export default {
 <template>
     <header>
         <h2>{{ localeStore.activeLocale.header.heading }}</h2>
-        <h3>Citizens {{ localeStore.activeLocale.header.online }}: {{ membersOnline }}</h3>
+        <h2 class="short">{{ localeStore.activeLocale.header.headingShort }}</h2>
+        <div class="right-side">
+            <h3>Citizens {{ localeStore.activeLocale.header.online }}: {{ membersOnline }}</h3>
         <div class="lang-button">
-            <RouterLink to="/eng" replace>ENG</RouterLink>
+            <RouterLink v-wave="{
+                duration: 0.15,
+                color: 'currentColor',
+                initialOpacity: 0.2,
+                easing: 'ease-out'
+            }" to="/eng" replace>ENG</RouterLink>
             <span>/</span>
-            <RouterLink to="/mev" replace>MEV</RouterLink>
+            <RouterLink v-wave="{
+                duration: 0.15,
+                color: 'currentColor',
+                initialOpacity: 0.2,
+                easing: 'ease-out'
+            }" to="/mev" replace>MEV</RouterLink>
+        </div>
         </div>
     </header>
 </template>

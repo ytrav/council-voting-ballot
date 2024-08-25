@@ -1,0 +1,67 @@
+@use 'variables.scss' as v;
+
+@media screen and (max-width: 559px) {
+  header {
+    .right-side {
+      gap: 10px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+  .page .form {
+    width: calc(100% - 20px);
+    p:not(:first-child) {
+        text-align: justify;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .page h1 {
+    font-size: 2em;
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 420px) {
+  header {
+    h2 {
+      display: none;
+    }
+    .short {
+      display: block;
+    }
+  }
+  .page .form p {
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 348px) {
+  header {
+    gap: 0px;
+    h3 {
+      font-size: 1em;
+    }
+    .right-side {
+      .lang-button {
+        gap: 5px;
+        a {
+          font-size: 0.9em;
+        }
+        span {
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+  .page {
+    h1 {
+      font-size: 1.4em;
+    }
+    .form {
+      width: 100%;
+    }
+  }
+}
